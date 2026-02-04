@@ -10,11 +10,11 @@ interface Props {
     params: Promise<{ slug: string }>;
 }
 
-// export async function generateStaticParams() {
-//     return INDUSTRIES.map((ind) => ({
-//         slug: ind.slug,
-//     }));
-// }
+export async function generateStaticParams() {
+    return INDUSTRIES.map((ind) => ({
+        slug: ind.slug,
+    }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
@@ -80,9 +80,11 @@ export default async function IndustryPage({ params }: Props) {
                 </div>
 
                 <div className="flex justify-center">
-                    <CalculatorForm initialAssetId={industry.slug === 'dentists' ? 'medical_equipment' :
-                        industry.slug === 'construction' ? 'vehicles_heavy' :
-                            industry.slug === 'trucking' ? 'vehicles_heavy' : undefined} />
+                    <Suspense fallback={<div className="p-8 text-center">Loading Calculator...</div>}>
+                        <CalculatorForm initialAssetId={industry.slug === 'dentists' ? 'medical_equipment' :
+                            industry.slug === 'construction' ? 'vehicles_heavy' :
+                                industry.slug === 'trucking' ? 'vehicles_heavy' : undefined} />
+                    </Suspense>
                 </div>
             </div>
         </main>
