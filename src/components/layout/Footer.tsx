@@ -32,6 +32,7 @@ export function Footer() {
                         <ul className="space-y-2 text-sm">
                             <li><Link href="/calculator" className="hover:text-white transition-colors">Tax Calculator</Link></li>
                             <li><Link href="/blog" className="hover:text-white transition-colors">Tax Strategy Blog</Link></li>
+                            <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
                             <li><Link href="/privacy" className="hover:text-white transition-colors text-slate-500">Privacy Policy</Link></li>
                             <li><Link href="/terms" className="hover:text-white transition-colors text-slate-500">Terms of Service</Link></li>
                         </ul>
